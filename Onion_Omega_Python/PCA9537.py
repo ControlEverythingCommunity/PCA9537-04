@@ -25,10 +25,10 @@ time.sleep(0.5)
 data = i2c.readBytes(0x41, 0x00, 1)
 
 # Convert the data to 4-bits
-data = (data & 0x0F)
+data[0] = (data[0] & 0x0F)
 
 for i in range(0, 4) :
-	if (data & (2 ** i)) == 0 :
+	if (data[0] & (2 ** i)) == 0 :
 		print "I/O Pin %d State is LOW" %i
 	else :
 		print "I/O Pin %d State is HIGH" %i
